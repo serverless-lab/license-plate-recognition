@@ -1,0 +1,3 @@
+RUNTIME python3
+
+RUN fun-install pip install hyperlpr opencv-python==3.4.8.29

@@ -1,0 +1,4 @@
+Flask==1.1.2
+hyperlpr==0.0.2
+opencv-python==3.4.8.29
+requests==2.24.0

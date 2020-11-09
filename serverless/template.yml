@@ -1,0 +1,37 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  lpr:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Description: LPR Service
+    lpr:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: python3
+        Timeout: 60
+        MemorySize: 512
+        CodeUri: ./
+      Events:
+        httpTrigger:
+          Type: HTTP
+          Properties:
+            AuthType: ANONYMOUS
+            Methods:
+              - GET
+    test:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler_test
+        Runtime: python3
+        Timeout: 60
+        MemorySize: 512
+        CodeUri: ./ 
+      Events:
+        httpTrigger:
+          Type: HTTP
+          Properties:
+            AuthType: ANONYMOUS
+            Methods:
+              - GET
